@@ -40,14 +40,14 @@ def main():
     X_train, X_test = X_train.astype('float32'), X_test.astype('float32')
     X_mean, X_std = np.mean(X_train), np.std(X_train)
     X_train, X_test = (X_train - X_mean) / X_std, (X_test - X_mean) / X_std
-    print('X_train shape:', X_train.shape)
-    print('X_test shape:', X_test.shape)
+    print(('X_train shape:', X_train.shape))
+    print(('X_test shape:', X_test.shape))
 
     # convert class vectors to binary class matrices
     Y_train = np_utils.to_categorical(y_train, nb_classes)
     Y_test = np_utils.to_categorical(y_test, nb_classes)
-    print('Y_train shape:', Y_train.shape)
-    print('Y_test shape:', Y_test.shape)
+    print(('Y_train shape:', Y_train.shape))
+    print(('Y_test shape:', Y_test.shape))
 
     # LSTM with timegate
     model_PLSTM = Sequential()
@@ -95,8 +95,8 @@ def main():
     plt.savefig('mnist_plstm_lstm_comparison_loss.png', dpi=100)
 
     # Compare test performance
-    print('Test score LSTM:', score_LSTM[0])
-    print('Test score Phased LSTM:', score_PLSTM[0])
+    print(('Test score LSTM:', score_LSTM[0]))
+    print(('Test score Phased LSTM:', score_PLSTM[0]))
 
 
 if __name__ == "__main__":
